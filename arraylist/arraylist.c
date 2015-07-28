@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../common.h"
 #include "arraylist.h"
 
 arraylist *create_al(int maxsize)
