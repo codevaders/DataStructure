@@ -62,7 +62,7 @@ int add_ll_element(linkedlist *data, int position, linkedlistnode element)
             memset(newnode, 0, sizeof(linkedlistnode));
             *newnode = element;
 
-            linkedlistnode *prev_node = data;
+            linkedlistnode *prev_node = (linkedlistnode *)data;
             linkedlistnode *next_node = data->headernode.link;
 
             if(position == 0)
@@ -113,7 +113,7 @@ int remove_ll_element(linkedlist *data, int position)
 
     if(data != NULL && position >= 0 && position < data->size)
     {
-        linkedlistnode *prev_node = data;
+        linkedlistnode *prev_node = (linkedlistnode *)data;
         linkedlistnode *next_node = data->headernode.link;
 
         if(position == 0)
@@ -173,7 +173,7 @@ linkedlistnode *get_ll_element(linkedlist *data, int position)
 
     if(data != NULL && position >= 0 && position < data->size)
     {
-        linkedlistnode *prev_node = data;
+        linkedlistnode *prev_node = (linkedlistnode *)data;
         linkedlistnode *next_node = data->headernode.link;
 
         int i = 0;
