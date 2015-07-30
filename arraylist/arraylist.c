@@ -163,26 +163,21 @@ void display_al_element(arraylist *data)
 {
     if(data != NULL)
     {
-        if(data->maxsize > 0)
+        int length = get_al_length(data);
+        arraylistnode element;
+
+        printf("Maximum: %d\n", data->maxsize);
+        printf("Current: %d\n", data->currentsize);
+
+        int i = 0;
+        for(; i < length; i++)
         {
-            int length = get_al_length(data);
-            arraylistnode element;
-
-            printf("Maximum: %d\n", data->maxsize);
-            printf("Current: %d\n", data->currentsize);
-
-            int i = 0;
-            for(; i < length; i++)
-            {
-                element = *get_al_element(data, i);
-                printf("[%d]:\t %d\n", i, element);
-            }
-
-            i = length;
-            for(; i < data->maxsize; i++)
-                printf("[%d]:\t (null)\n", i);
+            element = *get_al_element(data, i);
+            printf("[%d]:\t %d\n", i, element);
         }
-        else
-            printf("Error: Arraylist name is not valid. func::display_al_element()\n");
+
+        i = length;
+        for(; i < data->maxsize; i++)
+            printf("[%d]:\t (null)\n", i);
     }
 }

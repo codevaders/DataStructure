@@ -50,7 +50,6 @@ int main(void)
         display_al_element(sample_data);            /* (null) */
 
         delete_al(sample_data);
-        display_al_element(sample_data);            /* Error in display_al_element() */
 
         returndata = EXIT_SUCCESS;
     }
