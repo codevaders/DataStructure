@@ -62,22 +62,14 @@ int add_ll_element(linkedlist *data, int position, linkedlistnode element)
             memset(newnode, 0, sizeof(linkedlistnode));
             *newnode = element;
 
-            linkedlistnode *prev_node = (linkedlistnode *)data;
-            linkedlistnode *next_node = data->headernode.link;
+            linkedlistnode *oldnode = &(data->headernode);
 
-            if(position == 0)
-                data->headernode.link = newnode;
-            else
-            {
-                int i = 0;
-                for(; i < position; i++)
-                {
-                    prev_node = next_node;
-                    next_node = prev_node->link;
-                }
-                prev_node->link = newnode;
-            }
-            newnode->link = next_node;
+            int i = 0;
+            for(; i < position; i++)
+                oldnode = oldnode->link;
+            newnode->link = oldnode->link;
+            oldnode->link = newnode;
+
             data->size++;
 
             returndata = EXIT_SUCCESS;
@@ -113,22 +105,16 @@ int remove_ll_element(linkedlist *data, int position)
 
     if(data != NULL && position >= 0 && position < data->size)
     {
-        linkedlistnode *prev_node = (linkedlistnode *)data;
-        linkedlistnode *next_node = data->headernode.link;
+        linkedlistnode *node = &(data->headernode);
+        linkedlistnode *oldnode = NULL;
 
-        if(position == 0)
-            data->headernode.link = next_node->link;
-        else
-        {
-            int i = 0;
-            for(; i < position; i++)
-            {
-                prev_node = next_node;
-                next_node = prev_node->link;
-            }
-            prev_node->link = next_node->link;
-        }
-        free(next_node);
+        int i = 0;
+        for(; i < position; i++)
+            node = node->link;
+        oldnode = node->link;
+        node->link = oldnode->link;
+
+        free(oldnode);
         data->size--;
 
         returndata = EXIT_SUCCESS;
@@ -173,17 +159,13 @@ linkedlistnode *get_ll_element(linkedlist *data, int position)
 
     if(data != NULL && position >= 0 && position < data->size)
     {
-        linkedlistnode *prev_node = (linkedlistnode *)data;
-        linkedlistnode *next_node = data->headernode.link;
+        linkedlistnode *node = &(data->headernode);
 
         int i = 0;
-        for(; i < position; i++)
-        {
-            prev_node = next_node;
-            next_node = prev_node->link;
-        }
+        for(; i <= position; i++)
+            node = node->link;
 
-        returndata = next_node;
+        returndata = node;
     }
 
     return returndata;
