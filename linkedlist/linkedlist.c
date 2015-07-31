@@ -17,10 +17,7 @@ linkedlist *create_ll(void)
     
     returndata = (linkedlist *)malloc(sizeof(linkedlist));
     if(returndata != NULL)
-    {
-        returndata->size = 0;
-        returndata = (linkedlist *)malloc(sizeof(linkedlist));
-    }
+        memset(returndata, 0, sizeof(linkedlist));
 
     return returndata;
 }

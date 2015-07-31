@@ -17,10 +17,7 @@ circularlist *create_cl(void)
     
     returndata = (circularlist *)malloc(sizeof(circularlist));
     if(returndata != NULL)
-    {
-        returndata->size = 0;
-        returndata = (circularlist *)malloc(sizeof(circularlist));
-    }
+        memset(returndata, 0, sizeof(circularlist));
 
     return returndata;
 }
