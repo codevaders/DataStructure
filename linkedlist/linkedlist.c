@@ -19,12 +19,7 @@ linkedlist *create_ll(void)
     if(returndata != NULL)
     {
         returndata->size = 0;
-
-        linkedlistnode node;
-                       node.element = 0;
-                       node.link = NULL;
-
-        returndata->headernode = node;
+        returndata = (linkedlist *)malloc(sizeof(linkedlist));
     }
 
     return returndata;
