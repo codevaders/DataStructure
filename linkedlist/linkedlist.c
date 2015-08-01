@@ -176,7 +176,7 @@ void display_ll_element(linkedlist *data)
         for(; i < length; i++)
         {
             element = *get_ll_element(data, i);
-            printf("[%d]:\t %d\n", i, element);
+            printf("[%d]:\t %d\n", i, element.element);
         }
     }
 }

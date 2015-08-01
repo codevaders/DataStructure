@@ -173,7 +173,7 @@ void display_al_element(arraylist *data)
         for(; i < length; i++)
         {
             element = *get_al_element(data, i);
-            printf("[%d]:\t %d\n", i, element);
+            printf("[%d]:\t %d\n", i, element.element);
         }
 
         i = length;

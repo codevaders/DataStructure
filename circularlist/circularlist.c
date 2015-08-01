@@ -203,7 +203,7 @@ void display_cl_element(circularlist *data)
         for(; i < length; i++)
         {
             element = *get_cl_element(data, i);
-            printf("[%d]:\t %d\n", i, element);
+            printf("[%d]:\t %d\n", i, element.element);
         }
     }
 }
