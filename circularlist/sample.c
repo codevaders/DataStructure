@@ -43,7 +43,7 @@ int main(void)
         printf("If position more than element size:\n");
         int i = 0;
         for(; i < 20; i++)
-            printf("[%d]\t %d\n", i, *get_cl_element(sample_data, i));
+            printf("[%d]\t %d\n", i, (*get_cl_element(sample_data, i)).element);
 
         remove_cl_element(sample_data, 4);
         display_cl_element(sample_data);            /* 2 1 7 4 5 */
@@ -53,7 +53,7 @@ int main(void)
 
         printf("If position more than element size:\n");
         for(i = 0; i < 20; i++)
-            printf("[%d]\t %d\n", i, *get_cl_element(sample_data, i));
+            printf("[%d]\t %d\n", i, (*get_cl_element(sample_data, i)).element);
 
         delete_cl(sample_data);
 
